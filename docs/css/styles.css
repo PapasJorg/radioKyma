@@ -1,0 +1,1091 @@
+/*THIS HAS BEEN SPLIT INTO BASE.CSS AND COMPONENTS.CSS, IT IS INCLUDED FOR NOW JUST FOR
+REFERENCE REASONS AND SHOULD BE DELETED IN THE FUTURE.*/
+
+/*Slight improvements have been made compared to the previous styles.css such as 
+deleting double definitions or fixing double ## issues. They are irrelevant since this file
+will no longer be used . */
+
+/* Reset βασικών στοιχείων - Μηδενίζει margins/padding για όλα τα στοιχεία */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Βοηθάει στον υπολογισμό μεγεθών */
+}
+
+/* Ορίζει CSS μεταβλητές για εύκολη αλλαγή θεματικών χρωμάτων */
+:root {
+  --primary-color: #C70039;    /* Κύριο χρώμα (π.χ. κουμπιά) */
+  --secondary-color: #FFC300;  /* Δευτερεύον χρώμα */
+  --bg-color: #C70039;         /* Χρώμα φόντου */
+  --text-color: #581845;       /* Χρώμα κειμένου */
+  --header-bg: #FF5733;        /* Χρώμα κεφαλίδας */
+  --footer-bg: #C70039;           /* Χρώμα υποσέλιδου */
+  --font-family: 'Poppins', sans-serif; /* Προεπιλεγμένη γραμματοσειρά */
+}
+
+/* ================== */
+/* 2) Βασικό Στυλ - Ισχύει σε ΟΛΕΣ τις σελίδες */
+/* ================== */
+
+body {
+    background-image: url('.jpg'); /* 🚨 Λείπει όνομα αρχείου εικόνας */
+    background-size: cover; /* Επεκτείνεται να καλύψει όλη την οθόνη */
+    background-position: center; /* Κεντράρει την εικόνα */
+    background-repeat: no-repeat; /* Αποφεύγει την επανάληψη */
+    height: 100vh; /* Πλήρες ύψος οθόνης */
+    margin: 0; 
+}
+
+/* Δημιουργεί ημιδιάφανο overlay πάνω στο body */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('.jpg') center/cover no-repeat; /* 🚨 Λείπει όνομα εικόνας */
+    z-index: -1; /* Τοποθετείται πίσω από το περιεχόμενο */
+    opacity: 0.7; /* Διαφάνεια overlay */
+}
+
+/* Κάρτα προγράμματος με hover effects */
+.schedule-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Απαλό box-shadow */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Animation όταν ο κέρσορας περνάει πάνω από την κάρτα */
+.schedule-card:hover {
+  transform: translateY(-10px) rotate(2deg); /* Μετακίνηση προς τα πάνω + περιστροφή */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Πιο έντονο shadow */
+}
+
+/* ========================= */
+/* 3) Κεφαλίδα (Header) - Ισχύει σε ΟΛΕΣ τις σελίδες */
+/* ========================= */
+
+.site-header {
+  display: flex;
+  justify-content: space-between; /* Στοιχεία ευθυγραμμισμένα στα άκρα */
+  align-items: center;
+  background-color: var(--header-bg);
+  padding: 20px;
+}
+
+/* Sticky header - Κολλάει στην κορυφή κατά την κύλιση */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Σίγουρα μπροστά από άλλα στοιχεία */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Σκιά για βάθος */
+  transition: all 0.3s ease-in-out; /* Ομαλή μετάβαση για hover */
+}
+
+/* Αλλαγή χρώματος header όταν ο κέρσορας περνάει πάνω */
+.site-header:hover {
+  background-color: var(--primary-color);
+  transform: scale(1.02); /* Ελαφρά μεγένθυση */
+}
+
+/* Στυλ για το navigation menu */
+.site-header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* Απόσταση μεταξύ των menu items */
+}
+
+/* Στυλ για τους συνδέσμους του menu */
+.site-header nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  position: relative; /* Για το animated underline */
+  transition: color 0.3s ease;
+}
+
+/* Αλλαγή χρώματος συνδέσμου στο hover */
+.site-header nav a:hover {
+  color: #007bff;
+}
+
+/* Δημιουργεί animated underline effect */
+.site-header nav a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 0; /* Αρχικά αόρατο */
+  height: 3px;
+  background-color: var(--primary-color);
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-50%); /* Κεντράρισμα */
+}
+
+/* Εμφάνιση underline στο hover */
+.site-header nav a:hover::after {
+  width: 100%; 
+}
+
+/* ================= */
+/* 4) Υποσέλιδο - Ισχύει σε ΟΛΕΣ τις σελίδες */
+/* ================= */
+
+footer {
+  background-color: var(--footer-bg);
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px; /* Απόσταση από το κύριο περιεχόμενο */
+}
+
+/* ================= */
+/* 5) Κύριο Περιεχόμενο - Ισχύει σε ΟΛΕΣ τις σελίδες */
+/* ================= */
+
+main {
+  padding: 40px 20px; /* Εσωτερικό padding */
+  max-width: 1200px; /* Μέγιστο πλάτος περιεχομένου */
+  margin: 0 auto; /* Κεντράρισμα */
+}
+
+/* =========================== */
+/* 6) Αρχική Σελίδα (index.html) */
+/* =========================== */
+
+.hero-section {
+  text-align: center;
+  padding: 300px 50px; /* Μεγάλο padding για hero section */
+  background: url('assets/images/2.jpg') center center/cover no-repeat; /* 🚨 Λείπει # στο χρώμα */
+  color: #0056C1; 
+  animation: fadeIn 1.5s ease-in-out; /* Εφάπαξ animation */
+}
+
+/* Keyframes για fadeIn animation */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(-20px); /* Αρχική θέση πάνω από την κανονική */
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); /* Τελική θέση */
+  }
+}
+
+.hero-section h1 {
+  font-size: 3.8rem;
+  margin-bottom: 20px;
+color: #fff;
+}
+
+.hero-section p {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+color: #fff;
+}
+
+.btn-primary {
+  background-color: #FF5733;
+  color: #581845;
+  padding: 25px 40px;
+  text-decoration: none;
+  border-radius: 15px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background-color: #C70039;
+  transform: scale(1.08);
+}
+/* ====================================== */
+/* 7) Σελίδα Live (live.html) - Audio & Chat */
+/* ====================================== */
+
+/* 🎵 Στυλ για το audio player */
+.audio-section,
+.chat-section {
+  background-color: transparent; /* Διαφανές φόντο */
+  border-radius: 8px;
+  margin-bottom: 40px;
+  padding: 20px;
+  text-align: center;
+}
+
+.audio-section h2,
+.chat-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--text-color); /* Χρησιμοποιεί τη CSS μεταβλητή για χρώμα */
+}
+
+/* 🎧 Διπλότυπο CSS για audio-section - Μπορεί να προκαλέσει conflicts */
+.audio-section,
+.chat-section {
+  background-color: #fff; /* Λευκό φόντο */
+  border-radius: 8px;
+  margin-bottom: 40px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* 🔊 Βελτιστοποίηση audio player */
+audio {
+  width: 100%;
+  max-width: 600px; /* Μέγιστο πλάτος */
+  outline: none; /* Αφαιρεί το περίγραμμα όταν είναι σε focus */
+}
+
+/* 🎚️ Προσαρμογή plyr audio player */
+.plyr--audio {
+  background: transparent !important; /* Διαφανές φόντο */
+  box-shadow: none !important;
+  border-radius: 100px; /* Στρογγυλεμένα άκρα */
+}
+
+/* 🎛️ Στυλ για controls audio player */
+.plyr__controls {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(0px); /* Διαφανές φόντο */
+  border-radius: 10px;
+}
+
+/* 🟠 Προσαρμογή progress bar */
+.plyr__progress input {
+  background: #ff8a00 !important; /* Πορτοκαλί χρώμα */
+}
+
+/* ⚪ Κουμπιά controls */
+.plyr__controls button {
+  color: white !important; /* Λευκά εικονίδια */
+}
+
+/* 🔊 Volume slider animation */
+.plyr__volume {
+  width: 35px; /* Αρχικό πλάτος */
+  overflow: hidden;
+  transition: width 0.3s ease-in-out; /* Ομαλή μετάβαση */
+}
+
+.plyr__controls:hover .plyr__volume {
+  width: 100px; /* Αναπτύσσεται όταν ο κέρσορας περνάει πάνω */
+}
+
+/* 💬 Στυλ για chat iframe */
+.chat-section iframe {
+  width: 100%;
+  height: 500px; /* Σταθερό ύψος */
+  max-height: 90vh; /* Μέγιστο ύψος */
+  border: none; /* Χωρίς περίγραμμα */
+  background-color: transparent !important; /* Διαφανές φόντο */
+}
+
+/* ================================ */
+/* 8) Σελίδα Σχετικά (about.html) */
+/* ================================ */
+
+.about-section {
+  background-color: #fff; /* Λευκό φόντο */
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 60px; /* Μεγάλο κάτω περιθώριο */
+}
+
+.about-section h2 {
+  font-size: 1.8rem; /* Μέτριο μέγεθος κεφαλίδας */
+  margin-bottom: 20px;
+  color: var(--text-color); /* Χρήση CSS μεταβλητής */
+}
+
+.about-section p {
+  font-size: 1rem;
+  line-height: 1.5; /* Βελτιωμένη αναγνωσιμότητα */
+}
+
+/* ===================================== */
+/* 9) Σελίδα Επικοινωνία (contact.html) */
+/* ===================================== */
+
+.contact-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 40px; 
+  text-align: left; /* Αριστερή στοίχιση κειμένου */
+}
+
+.contact-section h2 {
+  font-size: 2rem; /* Μεγάλη κεφαλίδα */
+  margin-bottom: 20px;
+}
+
+.contact-section p {
+  font-size: 1.2rem; /* Ενισχυμένο μέγεθος κειμένου */
+  margin-bottom: 20px;
+}
+
+/* 📝 Στυλ φόρμας επικοινωνίας */
+.contact-form {
+  display: flex;
+  flex-direction: column; /* Στοιχεία σε στήλη */
+  margin-bottom: 20px;
+}
+
+.contact-form label {
+  font-weight: bold; /* Έντονα labels */
+  margin-bottom: 5px;
+}
+
+/* 🔤 Πεδία ονόματος σε γραμμή */
+.name-fields {
+  display: flex;
+  gap: 10px; /* Απόσταση μεταξύ πεδίων */
+  margin-bottom: 15px;
+}
+
+/* 📦 Στυλ input fields */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc; /* Απαλό περίγραμμα */
+  border-radius: 5px; /* Στρογγυλεμένα γωνία */
+}
+
+/* 🖱️ Κουμπί υποβολής */
+.btn-black {
+  background-color: #FF5733; /* Πορτοκαλί χρώμα */
+  color: #581845; /* Σκούρο μοβ χρώμα κειμένου */
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer; /* Δείκτης ποντικιού */
+}
+
+.btn-black:hover {
+  background-color: #C70039; /* Σκούροτερη απόχρωση */
+}
+
+/* 🖼️ Στυλ για εικόνα επικοινωνίας */
+.contact-image {
+  max-width: 100%; /* Responsive εικόνα */
+  border-radius: 5px;
+  margin-top: 20px; /* Απόσταση από την φόρμα */
+}
+
+/* ======================== */
+/* Σελίδα Πρόγραμμα (schedule.html) */
+/* ======================== */
+
+.schedule-section {
+  max-width: 1200px;
+  margin: 0 auto; /* Κεντράρισμα */
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.schedule-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.schedule-section p {
+  font-size: 1rem;
+  margin-bottom: 30px; /* Μεγάλο κάτω περιθώριο */
+}
+
+/* 📅 Λίστα ημερών */
+.days-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap; /* Σπάει σε νέα γραμμή αν χρειαστεί */
+  justify-content: center;
+  gap: 20px; /* Απόσταση μεταξύ κουμπιών */
+}
+
+.days-list li {
+  background-color: #FF5733; /* Πορτοκαλί φόντο */
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.days-list a {
+  color: #581845; /* Σκούρο μοβ χρώμα */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.days-list a:hover {
+  text-decoration: underline; /* Υπογράμμιση στο hover */
+}
+
+/* ======================== */
+/* Σελίδες Ημερών (monday.html κλπ) */
+/* ======================== */
+
+.day-header {
+  background: url("assets/images/back.jpg") no-repeat center center;
+  background-size: cover; /* Καλύπτει όλο το περιεχόμενο */
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff; /* Λευκό κείμενο */
+}
+
+.day-header h2 {
+  font-size: 2.5rem; /* Πολύ μεγάλη κεφαλίδα */
+  margin: 0; /* Χωρίς περιθώρια */
+}
+
+.day-schedule {
+  max-width: 1200px;
+  margin: 40px auto;
+  display: grid; /* Grid layout για κάρτες */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px; /* Απόσταση μεταξύ καρτών */
+  padding: 0 20px;
+}
+
+.schedule-card h3 {
+  font-size: 1.2rem; /* Μέτριο μέγεθος τίτλου */
+  margin-bottom: 10px;
+}
+
+.schedule-card p {
+  margin-bottom: 5px;
+  font-size: 0.95rem; /* Μικρότερο κείμενο */
+}
+
+/* 🏢 Στυλ κεφαλίδας */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Logo & menu σε αντίθετες πλευρές */
+  padding: 10px 20px;
+}
+
+/* 🖼️ Λογότυπο */
+.logo img {
+  height: 100px; /* Σταθερό ύψος */
+  transition: transform 1.5s ease-in-out; /* Αργή περιστροφή */
+}
+
+.logo img:hover {
+  transform: rotate(360deg) scale(1); /* Πλήρης περιστροφή */
+}
+
+.logo1 img {
+  height: 100px;
+  width: auto; /* Αυτόματο πλάτος */
+}
+
+/* 🔍 Animation μεγέθυνσης */
+@keyframes zoomIn {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); } /* 10% μεγέθυνση */
+}
+
+/* 📅 Κουμπιά ημερών */
+.day-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: #581845;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out;
+}
+
+.day-button:hover {
+  animation: zoomIn 0.3s forwards; /* Εφέ μεγέθυνσης */
+}
+
+.plyr--audio {
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    /*background: black; /* we could have a background color for this if we choose to */
+}
+
+nav ul li {
+    position: relative;
+    padding: 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FF5733;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    top: 100%;
+    left: 0;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color:#C70039 ;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 1px 0;
+    margin-top: 1px;
+}
+
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.social-icons img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.2);
+}
+
+
+
+
+.player-container {
+  background: linear-gradient(to right, #ff8a00, #e52e71);
+  background-size: cover;
+  padding: 0px;
+  border-radius: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+/* Default Light Mode */
+body {
+  background-color: white;
+  color: black;
+  transition: background 0.6s ease, color 0.6s ease;
+}
+
+/* Toggle Button */
+#dark-mode-toggle {
+  position: fixed;
+  top: 80px;
+  right: 17px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#dark-mode-toggle:hover {
+  transform: scale(1.2);
+}
+
+/* ✅ Πιο απαλό Dark Mode */
+body.dark-mode {
+    background-color: #1e1e1e !important;
+    color: #dcdcdc !important;
+    transition: background 0.6s ease-in-out, color 0.6s ease-in-out;
+}
+
+
+/* ✅ Ειδικά για τη σελίδα "live" */
+body.dark-mode.live-page main {
+    background: #252525 !important; /* Απαλό γκρι-μαύρο */
+    color: white !important;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* ✅ Κάνει τα sections πιο όμορφα */
+body.dark-mode .chat-section,
+body.dark-mode .audio-section {
+    background: linear-gradient(to right, #ff8a00, #e52e71) !important;
+    color: white !important;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+body.dark-mode .player-container {
+  background: #222; /* Σκούρο γκρι, όχι απόλυτο μαύρο */
+  padding: 0px;
+  border-radius: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+/* Στυλ του κανονικού μενού */
+.nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu ul li {
+    display: inline-block;
+}
+
+.nav-menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+}
+
+/* Στυλ dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: #333;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Στυλ του hamburger menu για κινητά */
+.menu-button {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+/* Στυλ για κινητά */
+@media screen and (max-width: 768px) {
+    .menu-button {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #222;
+        text-align: center;
+        padding: 10px 0;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+    }
+
+    .nav-menu ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+}
+/* Στυλ του κανονικού μενού */
+.nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu ul li {
+    display: inline-block;
+}
+
+.nav-menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+}
+
+/* Στυλ dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: #333;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Στυλ του hamburger menu για κινητά */
+.menu-button {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+/* Στυλ για κινητά */
+@media screen and (max-width: 768px) {
+    .menu-button {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #222;
+        text-align: center;
+        padding: 10px 0;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+    }
+
+    .nav-menu ul {
+        padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+    .nav-menu.active {
+            display: flex; /* Αντί για block, για σωστή στοίχιση */
+    flex-direction: column;
+    animation: slideDown 0.3s ease-in-out;
+    
+}
+
+@media screen and (max-width: 768px) {
+    .dropdown .dropdown-content {
+        display: none !important; /* Κρύβει το dropdown */
+        pointer-events: none; /* Απενεργοποιεί τα κλικ */
+    }
+}
+@media screen and (min-width: 769px) {
+    .menu-button {
+        display: none !important;
+    }
+}
+  .nav-menu ul li {
+    display: block; /* Αντί για inline-block */
+    padding: 10px;
+  }
+
+  .menu-button {
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    padding: 10px;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+  }
+}
+body {
+    transition: background-color 0.6s ease-in-out, color 0.6s ease-in-out;
+}
+
+#dark-mode-toggle {
+    transition: transform 0.2s ease-in-out;
+}
+
+#dark-mode-toggle:active {
+    transform: scale(1.1);
+}
+
+#dark-mode-toggle {
+    width: 40px; /* Σταθερό πλάτος */
+    height: 40px; /* Σταθερό ύψος */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px; /* Σταθερό μέγεθος γραμματοσειράς */
+    transition: transform 0.2s ease-in-out;
+}
+
+#dark-mode-toggle:active {
+    transform: scale(1.1);
+}
+
+
+
+/* Εφαρμογή transition σε περισσότερες ιδιότητες */
+body {
+    transition: background-color 0.6s ease-in-out, 
+                color 0.6s ease-in-out, 
+                box-shadow 0.6s ease-in-out, 
+                border-color 0.6s ease-in-out;
+}
+
+/* Στυλ για dark mode */
+body.dark-mode {
+    background-color: #1e1e1e !important; /* Σκούρο γκρι φόντο */
+    color: #dcdcdc !important; /* Απαλό λευκό κείμενο */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Σκιά για σκούρο mode */
+transition: background 0.6s ease-in-out, color 0.6s ease-in-out;
+}
+
+/* Ειδικά για άλλες ενότητες σε dark mode */
+body.dark-mode .chat-section,
+body.dark-mode .audio-section {
+    background: linear-gradient(to right, #ff8a00, #e52e71) !important;
+    color: white !important;
+    border-radius: 10px;
+    padding: 20px;
+    transition: background-color 0.6s ease-in-out, 
+                color 0.6s ease-in-out, 
+                box-shadow 0.6s ease-in-out, 
+                border-color 0.6s ease-in-out;
+}
+
+body.dark-mode .player-container {
+    background: #222; /* Σκούρο γκρι, όχι απόλυτο μαύρο */
+    padding: 0px;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+/* Στυλ για το toggle button */
+#dark-mode-toggle {
+    transition: background-color 0.6s ease-in-out, 
+                color 0.6s ease-in-out, 
+                box-shadow 0.6s ease-in-out, 
+                border-color 0.6s ease-in-out;
+}
+
+/* Transition για το κουμπί κατά τη διάρκεια hover */
+#dark-mode-toggle:hover {
+    transform: scale(1.2);
+}
+
+/* Στυλ για το light mode */
+body.light-mode {
+    background-color: white !important; /* Λευκό φόντο */
+    color: black !important; /* Μαύρο κείμενο */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Λιγότερη σκιά για το light mode */
+}
+
+/* Αν έχεις οποιοδήποτε άλλο στοιχείο που πρέπει να κάνει transition */
+.schedule-card, .logo img {
+    transition: background-color 0.6s ease-in-out, 
+                color 0.6s ease-in-out, 
+                box-shadow 0.6s ease-in-out, 
+                border-color 0.6s ease-in-out;
+}
+
+/* Ειδικά για το dropdown */
+body.dark-mode .dropdown-content {
+    background-color: #333; /* Σκούρο χρώμα για το dropdown */
+    transition: background-color 0.6s ease-in-out, 
+                color 0.6s ease-in-out, 
+                box-shadow 0.6s ease-in-out, 
+                border-color 0.6s ease-in-out;;
+}
+
+body.light-mode .dropdown-content {
+    background-color: white; /* Φως χρώμα για το dropdown */
+    transition: background-color 0.6s ease-in-out, 
+                color 0.6s ease-in-out, 
+                box-shadow 0.6s ease-in-out, 
+                border-color 0.6s ease-in-out;;
+}
+
+body.live-page main {
+    padding: 20px; /* Ίδιο padding και στις δύο λειτουργίες */
+}
+
+body.dark-mode.live-page main {
+    background: #252525 !important;
+    color: white !important;
+    border-radius: 10px;
+    /* Αφαίρεσε το padding αν είναι ίδιο */
+}
+
+
+
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+}
+
+.footer-column h2 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+.footer-description {
+  margin-bottom: 20px;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin: 5px 0;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #ffcc00;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-icons a img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 20px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.8em;
+}
+
+.footer-bottom .footer-links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.footer-bottom .footer-links a {
+  text-decoration: none;
+  color: #ffcc00;
+  font-size: 0.8em;
+  transition: text-decoration 0.3s ease;
+}
+
+.footer-bottom .footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-container,
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}

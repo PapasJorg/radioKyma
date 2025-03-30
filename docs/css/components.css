@@ -1,0 +1,441 @@
+/* ============================= */
+/* components.css - UI Elements */
+/* ============================= */
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 300px 50px;
+    background: url('../assets/images/2.jpg') center center/cover no-repeat;
+    color: #0056C1;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .hero-section h1,
+  .hero-section p {
+    color: #fff;
+  }
+  
+  .hero-section h1 {
+    font-size: 3.8rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-section p {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+  }
+  
+  /* Buttons */
+  .btn-primary,
+  .btn-black {
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 15px;
+    padding: 15px 30px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: #FF5733;
+    color: #581845;
+    padding: 25px 40px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #C70039;
+    transform: scale(1.08);
+  }
+  
+  .btn-black {
+    background-color: #FF5733;
+    color: #581845;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-black:hover {
+    background-color: #C70039;
+  }
+  
+  /* Program Schedule Cards */
+
+  .day-schedule {
+    max-width: 1200px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  .schedule-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .schedule-card:hover {
+    transform: translateY(-10px) rotate(2deg);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Header */
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--header-bg);
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .site-header:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.02);
+  }
+  
+  .site-header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .site-header nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  .site-header nav a:hover {
+    color: #007bff;
+  }
+  
+  .site-header nav a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+  }
+  
+  .site-header nav a:hover::after {
+    width: 100%;
+  }
+  
+  /* Dropdown Menu */
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FF5733;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    top: 100%;
+    left: 0;
+    padding: 10px;
+  }
+  
+  .dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #C70039;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Logo Animation */
+  .logo img {
+    height: 100px;
+    transition: transform 1.5s ease-in-out;
+  }
+  
+  .logo img:hover {
+    transform: rotate(360deg) scale(1);
+  }
+  
+  /* Responsive Nav Menu */
+  .menu-button {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .menu-button {
+      display: block;
+    }
+  
+    .nav-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: #222;
+      text-align: center;
+      padding: 10px 0;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+    }
+  
+    .nav-menu ul {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .nav-menu.active {
+      display: flex;
+      animation: slideDown 0.3s ease-in-out;
+    }
+  
+    .dropdown .dropdown-content {
+      display: none !important;
+      pointer-events: none;
+    }
+  }
+  
+  /* Plyr Audio Player */
+  .plyr--audio {
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 100px;
+    max-width: 400px;
+    margin: 20px auto;
+  }
+  
+  .plyr__controls {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(0px);
+    border-radius: 10px;
+  }
+  
+  .plyr__controls button {
+    color: white !important;
+  }
+  
+  .plyr__progress input {
+    background: #ff8a00 !important;
+  }
+  
+  .plyr__volume {
+    width: 35px;
+    overflow: hidden;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .plyr__controls:hover .plyr__volume {
+    width: 100px;
+  }
+  
+  /* Chat Section */
+  .chat-section iframe {
+    width: 100%;
+    height: 500px;
+    max-height: 90vh;
+    border: none;
+    background-color: transparent !important;
+  }
+  
+  /* Page Sections (About, Contact, etc.) */
+  .about-section,
+  .contact-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+  }
+  
+  .about-section h2,
+  .contact-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .name-fields {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .contact-image {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  /* Schedule Section */
+  .schedule-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  .schedule-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .schedule-section p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  
+  .days-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .days-list li {
+    background-color: #FF5733;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  .days-list a {
+    color: #581845;        
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .days-list a:hover {
+    text-decoration: underline;
+  }
+  
+  .day-button {
+    display: inline-block;
+    padding: 10px 20px;
+
+    /* background-color: var(--primary-color);
+    color: #581845;
+    Uncomment if we don't need the button 
+    to blend with the orange background*/
+    
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  @keyframes zoomIn {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+  }
+  
+  .day-button:hover {
+    animation: zoomIn 0.3s forwards;
+  }
+  
+  /* Player Container */
+  .player-container {
+    background: linear-gradient(to right, #ff8a00, #e52e71);
+    background-size: cover;
+    padding: 0px;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+  
+
+  /* Social Icons */
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.social-icons img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.2);
+}
+
+/* Day Header (monday.html, etc) */
+
+.day-header {
+  background: url("../assets/images/back.jpg") no-repeat center center;
+  background-size: cover;
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.day-header h2 {
+  font-size: 2.5rem;
+  margin: 0;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Stream - ΡΑΔΙΟΚΥΜΑ</title>
+  <link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
+</head>
+<body class="live-page"> <!-- ✅ Προσθήκη της κλάσης για να στοχεύσουμε μόνο αυτή τη σελίδα -->
+
+  <header class="site-header">
+    <a href="index.html" class="logo">
+      <img src="assets/images/logo.jpg" alt="NTUA Radio Logo">
+    </a>
+    <button id="dark-mode-toggle">🌙</button>
+    <button class="menu-button">☰</button>
+  <nav class="nav-menu">
+      <ul>
+        <li><a href="index.html">Αρχική</a></li>
+        <li><a href="live.html">Ζωντανή Ροή</a></li>
+        <li class="dropdown">
+          <a href="schedule.html">Πρόγραμμα</a>
+          <div class="dropdown-content">
+            <a href="monday.html">Δευτέρα</a>
+            <a href="tuesday.html">Τρίτη</a>
+            <a href="wednesday.html">Τετάρτη</a>
+            <a href="thursday.html">Πέμπτη</a>
+            <a href="friday.html">Παρασκευή</a>
+            <a href="saturday.html">Σάββατο</a>
+            <a href="sunday.html">Κυριακή</a>
+          </div>
+        </li>
+        <li><a href="about.html">Σχετικά</a></li>
+        <li><a href="contact.html">Επικοινωνία</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="audio-section">
+      <h2>Ζωντανή Ροή</h2>
+      <div class="player-container">
+        <audio class="plyr-audio" controls preload="auto">
+          <source src="https://api.allorigins.win/raw?url=http://radio.myaegean.gr:8000/playlist_cclounge.mp3" type="audio/mpeg">
+          Ο περιηγητής σας δεν υποστηρίζει το στοιχείο audio.
+        </audio>
+      </div>
+    </section>
+
+    <section class="chat-section">
+      <h2>Live Chat</h2>
+      <iframe 
+        src="https://organizations.minnit.chat/808702440957882/c/Main?embed" 
+        style="border:none; width:90%; height:500px; max-height:90vh;" 
+        allowTransparency="true">
+      </iframe>
+      <p class="fallback-chat" style="display: none;">
+        Το live chat δεν είναι διαθέσιμο αυτή τη στιγμή. <a href="https://organizations.minnit.chat/808702440957882/c/Main">Κάνε κλικ εδώ</a> για να το ανοίξεις σε νέο παράθυρο.
+      </p>
+    </section>
+  </main>
+
+ <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column footer-radiokyma">
+        <h2>Radiokyma</h2>
+        <p class="footer-description">Broadcasting knowledge, culture, and entertainment from the heart of the National Technical University.</p>
+        
+        <div class="social-icons">
+          <a href="https://www.facebook.com/radiokyma" target="_blank">
+            <img src="assets/images/facebook.jpg" alt="Facebook">
+          </a>
+          <a href="https://www.instagram.com/radiokyma_ntua/" target="_blank">
+            <img src="assets/images/instagram.jpg" alt="Instagram">
+          </a>
+          <a href="https://open.spotify.com/user/31biwqoqhmhk75ahwrzv62up4vbm?si=aa184bd00881448f" target="_blank">
+            <img src="assets/images/spotify.jpg" alt="Spotify">
+          </a>
+          <a href="https://www.tiktok.com/@radiokyma.ntua?is_from_webapp=1&sender_device=pc" target="_blank">
+            <img src="assets/images/tiktok.jpg" alt="TikTok">
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-column footer-quick-links">
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="index.html">Ηome</a></li>
+          <li><a href="live.html">Livestream</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column footer-contact">
+        <h2>Contact</h2>
+        <p>NTUA Campus
+         <br> Πολυτεχνειούπολη Ζωγράφου
+         <br>Ηρώων Πολυτεχνείου 9
+           <br>15773 Ζωγράφου
+           <br>radiokyma.ntua@gmail.com</p>
+      </div>
+    </div>
+    <hr>
+    <div class="footer-bottom">
+      <p>© 2025 Radiokyma. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+        <a href="cookie-policy.html">Cookie Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const players = document.querySelectorAll('.plyr-audio');
+      players.forEach(player => new Plyr(player));
+    });
+  </script>
+  <script src="js/menu.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+/* ============================= */
+/* base.css - Foundation Styles  */
+/* ============================= */
+
+/* 1. CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* 2. CSS Variables */
+  :root {
+    --primary-color: #C70039;
+    --secondary-color: #FFC300;
+    --bg-color: #C70039;
+    --text-color: #581845;
+    --header-bg: #FF5733;
+    --footer-bg: #C70039;
+    --font-family: 'Poppins', sans-serif;
+  }
+  
+  /* 3. Base Layout */
+  body {
+    background-color: white;
+    color: black;
+    font-family: var(--font-family);
+    transition: background-color 0.6s ease-in-out,
+                color 0.6s ease-in-out,
+                box-shadow 0.6s ease-in-out,
+                border-color 0.6s ease-in-out;
+  }
+  
+  main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* 4. Dark Mode */
+  body.dark-mode {
+    background-color: #1e1e1e !important;
+    color: #dcdcdc !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  body.light-mode {
+    background-color: white !important;
+    color: black !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 5. Global Transitions */
+  .schedule-card,
+  .logo img,
+  #dark-mode-toggle,
+  .dropdown-content {
+    transition: background-color 0.6s ease-in-out,
+                color 0.6s ease-in-out,
+                box-shadow 0.6s ease-in-out,
+                border-color 0.6s ease-in-out;
+  }
+  
+  /* 6. Footer */
+ 
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+}
+
+.footer-column h2 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+.footer-description {
+  margin-bottom: 20px;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin: 5px 0;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #ffcc00;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-icons a img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 20px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.8em;
+}
+
+.footer-bottom .footer-links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.footer-bottom .footer-links a {
+  text-decoration: none;
+  color: #ffcc00;
+  font-size: 0.8em;
+  transition: text-decoration 0.3s ease;
+}
+
+.footer-bottom .footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-container,
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  }
+  
+  /* 7. Base Navigation */
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    /*background: black; we can use a background color for this, 
+    but let it merge with the background color for now */
+  }
+  
+  nav ul li {
+    position: relative;
+    padding: 15px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+  }
+  
+  /* 8. Dark Mode Components */
+  body.dark-mode .dropdown-content {
+    background-color: #333;
+  }
+  
+  body.light-mode .dropdown-content {
+    background-color: white;
+  } 
+  
+  body.live-page main {
+    padding: 20px;
+  }
+  
+  body.dark-mode.live-page main {
+    background: #252525 !important;
+    color: white !important;
+    border-radius: 10px;
+  } 
+  
+  /* 9. Toggle Button */
+  #dark-mode-toggle {
+    position: fixed;
+    top: 80px;
+    right: 17px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  #dark-mode-toggle:hover {
+    transform: scale(1.2);
+  }
+  
+  #dark-mode-toggle:active {
+    transform: scale(1.1);
+  }
+  
