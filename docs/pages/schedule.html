@@ -34,24 +34,30 @@
       </ul>
     </nav>
   </header>
+  
+  <script src="../js/schedule-loader.js"></script>
 
-  <main>
-    <section class="schedule-section">
-      <h2>Πρόγραμμα</h2>
-      <p>Δείτε το αναλυτικό πρόγραμμα του NTUA Radio για κάθε ημέρα της εβδομάδας.</p>
-      <ul class="days-list">
-        <li><a href="monday.html"class="day-button">Δευτέρα</a></li>
-        <li><a href="tuesday.html"class="day-button">Τρίτη</a></li>
-        <li><a href="wednesday.html"class="day-button">Τετάρτη</a></li>
-        <li><a href="thursday.html"class="day-button">Πέμπτη</a></li>
-        <li><a href="friday.html"class="day-button">Παρασκευή</a></li>
-        <li><a href="saturday.html"class="day-button">Σάββατο</a></li>
-        <li><a href="sunday.html"class="day-button">Κυριακή</a></li>
-      </ul>
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <section class="schedule-section text-center">
+      <h2 class="text-3xl font-bold mb-4">Πρόγραμμα</h2>
+      <p class="mb-6 text-gray-700">Δείτε το αναλυτικό πρόγραμμα του NTUA Radio για κάθε ημέρα της εβδομάδας.</p>
+  
+      <div class="day-buttons flex flex-wrap justify-center gap-2 mb-8">
+        <button class="day-button bg-indigo-600 text-white px-4 py-2 rounded-full" onclick="showSchedule('monday', this)">Δευτέρα</button>
+        <button class="day-button bg-gray-200 px-4 py-2 rounded-full" onclick="showSchedule('tuesday', this)">Τρίτη</button>
+        <button class="day-button bg-gray-200 px-4 py-2 rounded-full" onclick="showSchedule('wednesday', this)">Τετάρτη</button>
+        <button class="day-button bg-gray-200 px-4 py-2 rounded-full" onclick="showSchedule('thursday', this)">Πέμπτη</button>
+        <button class="day-button bg-gray-200 px-4 py-2 rounded-full" onclick="showSchedule('friday', this)">Παρασκευή</button>
+        <button class="day-button bg-gray-200 px-4 py-2 rounded-full" onclick="showSchedule('saturday', this)">Σάββατο</button>
+        <button class="day-button bg-gray-200 px-4 py-2 rounded-full" onclick="showSchedule('sunday', this)">Κυριακή</button>
+      </div>
+  
+      <div id="schedule-container" class="space-y-4 text-left">
+      </div>
     </section>
   </main>
+  
 
-<!-- Footer -->
   <footer>
     <div class="footer-container">
       <div class="footer-column footer-radiokyma">
