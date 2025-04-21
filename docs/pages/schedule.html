@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <title>Πρόγραμμα - ΡΑΔΙΟΚΥΜΑ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <header class="site-header">
+  <a href="../index.html" class="logo">
+  <img src="../assets/images/logo.jpg" alt="NTUA Radio Logo">
+</a>
+  <button class="menu-button">☰</button>
+  <nav class="nav-menu">
+      <ul>
+        <li><a href="../index.html">Αρχική</a></li>
+      <li><a href="live.html">Ζωντανή Ροή</a></li>
+                <li class="dropdown">
+    <a href="schedule.html">Πρόγραμμα</a>
+    <div class="dropdown-content">
+        <a href="monday.html">Δευτέρα</a>
+        <a href="tuesday.html">Τρίτη</a>
+        <a href="wednesday.html">Τετάρτη</a>
+        <a href="thursday.html">Πέμπτη</a>
+        <a href="friday.html">Παρασκευή</a>
+        <a href="saturday.html">Σάββατο</a>
+        <a href="sunday.html">Κυριακή</a>
+    </div>
+</li>
+        <li><a href="about.html">Σχετικά</a></li>
+        <li><a href="contact.html">Επικοινωνία</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <script src="../js/schedule-loader.js"></script>
+
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <section class="schedule-section text-center">
+      <h2 class="text-3xl font-bold mb-4">Πρόγραμμα</h2>
+      <p class="mb-6 text-gray-700">Δείτε το αναλυτικό πρόγραμμα του NTUA Radio για κάθε ημέρα της εβδομάδας.</p>
+  
+      <div class="day-buttons flex flex-wrap justify-center gap-2 mb-8">
+        <button class="day-button bg-indigo-600 text-white px-4 py-2 rounded-full" onclick="showSchedule('monday', this)">Δευτέρα</button>
+        <button class="day-button bg-gray-200 px-4 py-2 rounded-full" onclick="showSchedule('tuesday', this)">Τρίτη</button>
+        <button class="day-button bg-gray-200 px-4 py-2 rounded-full" onclick="showSchedule('wednesday', this)">Τετάρτη</button>
+        <button class="day-button bg-gray-200 px-4 py-2 rounded-full" onclick="showSchedule('thursday', this)">Πέμπτη</button>
+        <button class="day-button bg-gray-200 px-4 py-2 rounded-full" onclick="showSchedule('friday', this)">Παρασκευή</button>
+        <button class="day-button bg-gray-200 px-4 py-2 rounded-full" onclick="showSchedule('saturday', this)">Σάββατο</button>
+        <button class="day-button bg-gray-200 px-4 py-2 rounded-full" onclick="showSchedule('sunday', this)">Κυριακή</button>
+      </div>
+  
+      <div id="schedule-container" class="space-y-4 text-left">
+      </div>
+    </section>
+  </main>
+  
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column footer-radiokyma">
+        <h2>Radiokyma</h2>
+        <p class="footer-description">Broadcasting knowledge, culture, and entertainment from the heart of the National Technical University.</p>
+        
+        <div class="social-icons">
+          <a href="https://www.facebook.com/radiokyma" target="_blank">
+            <img src="../assets/images/facebook.jpg" alt="Facebook">
+          </a>
+          <a href="https://www.instagram.com/radiokyma_ntua/" target="_blank">
+            <img src="../assets/images/instagram.jpg" alt="Instagram">
+          </a>
+          <a href="https://open.spotify.com/user/31biwqoqhmhk75ahwrzv62up4vbm?si=aa184bd00881448f" target="_blank">
+            <img src="../assets/images/spotify.jpg" alt="Spotify">
+          </a>
+          <a href="https://www.tiktok.com/@radiokyma.ntua?is_from_webapp=1&sender_device=pc" target="_blank">
+            <img src="../assets/images/tiktok.jpg" alt="TikTok">
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-column footer-quick-links">
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="../index.html">Ηome</a></li>
+          <li><a href="live.html">Livestream</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column footer-contact">
+        <h2>Contact</h2>
+        <p>NTUA Campus
+         <br> Πολυτεχνειούπολη Ζωγράφου
+         <br>Ηρώων Πολυτεχνείου 9
+           <br>15773 Ζωγράφου
+           <br>radiokyma.ntua@gmail.com</p>
+      </div>
+    </div>
+    <hr>
+    <div class="footer-bottom">
+      <p>© 2025 Radiokyma. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+        <a href="cookie-policy.html">Cookie Policy</a>
+      </div>
+    </div>
+  </footer>
+</body>
+  <script src="../js/menu.js"></script>
+</html>
